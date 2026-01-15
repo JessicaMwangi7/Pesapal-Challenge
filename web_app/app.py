@@ -41,8 +41,12 @@ def add_user():
 
 @app.route("/update", methods=["POST"])
 def update_user():
-    criteria = {"id": request.form["id"]}
-    updates = {"name": request.form["name"], "category": request.form["category"], "email": request.form["email"]}
+    criteria = {"id": request.form.get("id")}
+    updates = {
+        "name": request.form.get("name"),
+        "category": request.form.get("category", ""),  # use .get with default
+        "email": request.form.get("email")
+    }
     try:
         count = db.get_table("users").update(criteria, updates)
         print(f"{count} row(s) updated.")
