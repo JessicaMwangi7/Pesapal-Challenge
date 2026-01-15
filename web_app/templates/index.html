@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        input[type="text"], input[type="number"], input[type="email"] {
+            padding: 5px;
+            margin: 5px 10px 5px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 6px 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Relational Database Management System (RDBMS)</h1>
+    <h1>Users Table</h1>
+
+    <!-- Add User -->
+    <h2>Add User</h2>
+    <form action="/add" method="post">
+        <input name="id" type="number" placeholder="ID" required>
+        <input name="name" type="text" placeholder="Name" required>
+        <input name="email" type="email" placeholder="Email" required>
+        <button type="submit">Add User</button>
+    </form>
+
+    <!-- Update User -->
+    <h2>Update User</h2>
+    <form action="/update" method="post">
+        <input name="id" type="number" placeholder="ID to update" required>
+        <input name="name" type="text" placeholder="New Name" required>
+        <input name="email" type="email" placeholder="New Email" required>
+        <button type="submit">Update User</button>
+    </form>
+
+    <!-- Delete User -->
+    <h2>Delete User</h2>
+    <form action="/delete" method="post">
+        <input name="id" type="number" placeholder="ID to delete" required>
+        <button type="submit">Delete User</button>
+    </form>
+
+    <!-- Display Users -->
+    <h2>All Users</h2>
+    {% if users %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user['id'] }}</td>
+                    <td>{{ user['name'] }}</td>
+                    <td>{{ user['email'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No users found.</p>
+    {% endif %}
+
+</body>
+</html>
