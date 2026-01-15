@@ -6,12 +6,12 @@ from rdbms import Database
 db = Database()
 
 print("RDBMS REPL. Type 'exit' to quit.")
-print("commands:")
-print("create_table users {\"id\":\"int\", \"name\":\"str\", \"email\":\"str\"}")
-print("insert users {\"id\":1,\"name\":\"Jessica\",\"email\":\"jessica@mail.com\"}")
-print("select users {\"id\":1}")
-print("update users {\"id\":1} {\"name\":\"Jessica Updated\"}")
-print("delete users {\"id\":1}")
+print("Commands:")
+print('create_table users {"id":"int", "name":"str", "category":"str", "email":"str"}')
+print('insert users {"id":1,"name":"Jessica","category":"Junior Developer","email":"jessica@mail.com"}')
+print('select users {"id":1}')
+print('update users {"id":1} {"name":"Jessica Updated","category":"Senior Developer"}')
+print('delete users {"id":1}')
 
 while True:
     cmd = input(">>> ").strip()
