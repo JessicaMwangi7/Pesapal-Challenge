@@ -56,10 +56,8 @@ Supported types:
 The project includes a REPL (Read-Eval-Print Loop) that allows users to interact with the database using simple SQL-like commands.
 
 
-### Run the REPL
+### How to Run 
 ```bash
 python repl.py
 
-##How to run
-```bash
 python app.py
