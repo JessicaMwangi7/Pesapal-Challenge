@@ -31,7 +31,7 @@ No external database (MySQL, PostgreSQL, SQLite) is used.
 
 ---
 
-## ⚙️ How the RDBMS Works
+## How the RDBMS Works
 
 ### Tables
 Each table:
@@ -51,7 +51,7 @@ Supported types:
 
 ---
 
-## 🖥 Interactive REPL
+## Interactive REPL
 
 The project includes a REPL (Read-Eval-Print Loop) that allows users to interact with the database using simple SQL-like commands.
 
@@ -60,12 +60,6 @@ The project includes a REPL (Read-Eval-Print Loop) that allows users to interact
 ```bash
 python repl.py
 
-create_table users {"id":"int","name":"str","email":"str"}
-insert users {"id":1,"name":"Jessica","email":"jessica@mail.com"}
-select users {"id":1}
-update users ({"id":1},{"name":"Jessica Mwangi"})
-delete users {"id":1}
-exit
-
-## How to Run
+### Run the REPL
+```bash
 python app.py
