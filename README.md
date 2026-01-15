@@ -60,6 +60,6 @@ The project includes a REPL (Read-Eval-Print Loop) that allows users to interact
 ```bash
 python repl.py
 
-### Run the REPL
+##How to run
 ```bash
 python app.py
