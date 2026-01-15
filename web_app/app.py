@@ -12,7 +12,7 @@ db = Database()
 # Define users table with types as strings to match rdbms.py
 db.create_table(
     "users",
-    {"id": "int", "name": "str", "email": "str"},
+    {"id": "int", "name": "str", "category": "str", "email": "str"},
     primary_key="id",
     unique_keys=["email"]
 )
@@ -24,21 +24,25 @@ def index():
 
 @app.route("/add", methods=["POST"])
 def add_user():
-    data = {
-        "id": request.form["id"],
-        "name": request.form["name"],
-        "email": request.form["email"]
+    user = {
+        "id": int(request.form.get("id")),
+        "name": request.form.get("name"),
+        "category": request.form.get("category", ""),  # <-- CATEGORY/ROLE
+        "email": request.form.get("email")
     }
+
     try:
-        db.get_table("users").insert(data)
+        db.get_table("users").insert(user)  # use get_table().insert()
     except ValueError as e:
         print(f"Error: {e}")
+
     return redirect("/")
+
 
 @app.route("/update", methods=["POST"])
 def update_user():
     criteria = {"id": request.form["id"]}
-    updates = {"name": request.form["name"], "email": request.form["email"]}
+    updates = {"name": request.form["name"], "category": request.form["category"], "email": request.form["email"]}
     try:
         count = db.get_table("users").update(criteria, updates)
         print(f"{count} row(s) updated.")

@@ -63,18 +63,20 @@
 
     <!-- Add User -->
     <h2>Add User</h2>
-    <form action="/add" method="post">
-        <input name="id" type="number" placeholder="ID" required>
-        <input name="name" type="text" placeholder="Name" required>
-        <input name="email" type="email" placeholder="Email" required>
-        <button type="submit">Add User</button>
-    </form>
+    <form method="POST" action="/add">
+    <input type="number" name="id" placeholder="ID" required>
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="text" name="category" placeholder="Role / Category" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <button type="submit">Add User</button>
+</form>
 
     <!-- Update User -->
     <h2>Update User</h2>
     <form action="/update" method="post">
         <input name="id" type="number" placeholder="ID to update" required>
         <input name="name" type="text" placeholder="New Name" required>
+        <input name="Category" type="text" placeholder="New Category" required>
         <input name="email" type="email" placeholder="New Email" required>
         <button type="submit">Update User</button>
     </form>
@@ -94,6 +96,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Category</th>
                     <th>Email</th>
                 </tr>
             </thead>
@@ -102,6 +105,7 @@
                 <tr>
                     <td>{{ user['id'] }}</td>
                     <td>{{ user['name'] }}</td>
+                    <td>{{ user['category'] }}</td>
                     <td>{{ user['email'] }}</td>
                 </tr>
                 {% endfor %}
